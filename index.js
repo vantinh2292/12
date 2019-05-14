@@ -58,15 +58,15 @@ function getRandomInt(max) {
 
 // }, 3000);
 
-setInterval(function(){
-    app.database().ref('Table1/Temperature1').push({
-        Hanoi: 25+getRandomInt(5),
-        Danang: 20+getRandomInt(7),
-        Saigon:30+getRandomInt(5),
-        counter:count
-    });
-    count=count+1;
-},2000)
+// setInterval(function(){
+//     app.database().ref('Table1/Temperature1').push({
+//         Hanoi: 25+getRandomInt(5),
+//         Danang: 20+getRandomInt(7),
+//         Saigon:30+getRandomInt(5),
+//         counter:count
+//     });
+//     count=count+1;
+// },2000)
 
 var http = require('http');
 
