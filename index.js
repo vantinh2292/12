@@ -1,4 +1,3 @@
-let request = require('request');
 let apiKey = 'f0673527f9200484ceae71cb08d7e587';
 let city1 = 'Hanoi';
 let city2 = 'Danang';
@@ -8,7 +7,7 @@ let url1 = `http://api.openweathermap.org/data/2.5/weather?q=${city1}&appid=${ap
 let url2 = `http://api.openweathermap.org/data/2.5/weather?q=${city2}&appid=${apiKey}&units=metric`;
 let url3 = `http://api.openweathermap.org/data/2.5/weather?q=${city3}&appid=${apiKey}&units=metric`;
 var HaNoi=0,Danang=0,Saigon=0;
-var firebase = require('node_modules/firebase');
+var firebase = require('firebase');
 var app = firebase.initializeApp(
     {
         apiKey: "AIzaSyDZF1-ipAZ81EENp2NtdxRlrq6V7FmWX4s",
@@ -58,15 +57,16 @@ function getRandomInt(max) {
 
 // }, 3000);
 
-// setInterval(function(){
-//     app.database().ref('Table1/Temperature1').push({
-//         Hanoi: 25+getRandomInt(5),
-//         Danang: 20+getRandomInt(7),
-//         Saigon:30+getRandomInt(5),
-//         counter:count
-//     });
-//     count=count+1;
-// },2000)
+setInterval(function(){
+    app.database().ref('Table1/Temperature').push({
+        Hanoi: 25+getRandomInt(5),
+        Danang: 20+getRandomInt(7),
+        Saigon:30+getRandomInt(5),
+        createAt:Date.now(),
+        counter:count
+    });
+    count=count+1;
+},2000)
 
 var http = require('http');
 
